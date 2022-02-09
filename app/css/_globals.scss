@@ -1,0 +1,76 @@
+// Light mode colors
+$lightBlue: #0079FF;
+$darkGrey: #697C9A;
+$greyBlue: #4B6A9B;
+$lightBlack: #2B3442;
+$whiteBlue: #F6F8FF;
+$almostWhite: #FEFEFE;
+
+// Dark mode colors
+$white: #FFFFFF;
+$dark: #141D2F;
+$darkBlue: #1E2A47;
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Space Mono', monospace;;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* TYPOGRAPHY */
+:root {
+
+    // mobile
+    --paragraph-mobile: 1.3rem;
+
+    // desktop
+    --heading: 2.6rem;
+    --heading-secondary: 2.2rem;
+    --heading-tertiary: 1.6rem;
+    --heading-quarternary: 1.3rem;
+    --paragraph: 1.5rem;
+    }
+
+body {
+    background: $whiteBlue;
+    padding: 3.1rem 2.4rem;
+}
+
+h1, h2, h3, h4, p, li, ul, span, a, button {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+h1 {
+    line-height: 3.8rem;
+    font-size: var(--heading);
+}
+
+h2 {
+    line-height: 3.3rem;
+}
+
+h3 {
+    line-height: 2.4rem;
+}
+
+h4 {
+    line-height: 2rem;
+}
+
+p {
+    line-height: 2.5rem;
+    font-size: var(--paragraph-mobile);
+}
+
+.hide-for-mobile {
+    display: none;
+}
