@@ -47,6 +47,7 @@ body {
 h1, h2, h3, h4, p, li, ul, span, a, button {
     list-style-type: none;
     text-decoration: none;
+    font-family: 'Space Mono', monospace;;
 }
 
 h1 {
@@ -69,6 +70,13 @@ h4 {
 p {
     line-height: 2.5rem;
     font-size: var(--paragraph-mobile);
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    font-size: var(--paragraph-mobile);
+
 }
 
 .hide-for-mobile {
