@@ -164,10 +164,10 @@ button {
   margin-bottom: 3.4rem;
 }
 
-.main-container .upper-main-subcontainer .main-info .profile-picture {
+.main-container .upper-main-subcontainer .main-info .profile-picture-container #profile-picture {
   height: 7rem;
   width: 7rem;
-  background-color: yellow;
+  border-radius: 90px;
 }
 
 .main-container .upper-main-subcontainer .main-info .personal-info .name {
@@ -221,15 +221,15 @@ button {
   margin: 0 auto;
 }
 
-.main-container .lower-main-subcontainer .stats-container .stat-item .stat-1 {
+.main-container .lower-main-subcontainer .stats-container .stat-item .repos {
   width: 25%;
 }
 
-.main-container .lower-main-subcontainer .stats-container .stat-item .stat-2 {
+.main-container .lower-main-subcontainer .stats-container .stat-item .followers {
   width: 60%;
 }
 
-.main-container .lower-main-subcontainer .stats-container .stat-item .stat-3 {
+.main-container .lower-main-subcontainer .stats-container .stat-item .following {
   width: 25%;
 }
 
@@ -261,6 +261,7 @@ button {
       -ms-flex-align: center;
           align-items: center;
   gap: 2rem;
+  cursor: pointer;
 }
 
 .main-container .lower-main-subcontainer .link-container .link .link-paragraph {
