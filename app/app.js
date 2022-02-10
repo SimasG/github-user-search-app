@@ -1,5 +1,8 @@
 const searchContainer = document.querySelector('.search-container');
 
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 async function getUserData () {
     const response = await fetch('https://api.github.com/users/octocat');
     return await response.json();
@@ -8,12 +11,7 @@ async function getUserData () {
 displayUserData = async () => {
     getUserData();
     const data = await getUserData();
-    console.log(data);
-    console.log(data.created_at);
-
-    // dateJson = data.created_at;
-    // dateParsedJson = dateJson.toUTCString();
-    // console.log(dateParsedJson);
+    const date = new Date(data.created_at);
 
     document.querySelector('#profile-picture').src = data.avatar_url;
     document.querySelector('.name').textContent = data.name;
@@ -26,6 +24,7 @@ displayUserData = async () => {
     // fix null value display
     document.querySelector('.twitter').textContent = data.twitter_username;
     document.querySelector('.company').textContent = data.company;
+    document.querySelector('.join-date').textContent = `Joined ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
 
 
 
