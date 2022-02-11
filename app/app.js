@@ -1,6 +1,10 @@
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+const input = document.querySelector('#search');
+const noResults = document.querySelector('.no-results');
+
+
 let username = 'octocat';
 
 // fetching api data
@@ -10,13 +14,23 @@ async function getUser (username) {
 
     console.log(data);
     displayUser(data);
+    displayNoResults(data);
+}
+
+
+// handling the case if user doesn't exist
+displayNoResults = (user) => {
+    if (user.message === 'Not Found') {
+        input.textContent = '';
+        input.placeholder = '';
+        noResults.classList.remove('hide');
+    }
 }
 
 // populating api data into html
 displayUser = async (user) => {
     const date = new Date(user.created_at);
 
-    // document.querySelector('#profile-picture').src = user.avatar_url;
     const avatar = document.querySelector('#profile-picture');
     if (!user.avatar_url) {
         avatar.src = "https://avatars.githubusercontent.com/u/583231?v=4";
@@ -24,7 +38,6 @@ displayUser = async (user) => {
         avatar.src = user.avatar_url;
     }
 
-    // document.querySelector('.name').textContent = user.name;
     const userName = document.querySelector('.name');
     if (!user.name) {
         userName.textContent = 'Not Available';
@@ -32,17 +45,14 @@ displayUser = async (user) => {
         userName.textContent = user.name;
     }
 
-
-
-    // document.querySelector('.handle').textContent = `@${user.login}`;
     const handle = document.querySelector('.handle');
     if (!user.login) {
         handle.textContent = 'Not Available';
+        // noResults.classList.add('active-inline');
     } else {
         handle.textContent = `@${user.login}`;
     }
 
-    // document.querySelector('.join-date').textContent = `Joined ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
     const joinDate = document.querySelector('.join-date');
     if (!user.created_at) {
         joinDate.textContent = 'Not Available';
@@ -50,7 +60,6 @@ displayUser = async (user) => {
         joinDate.textContent = `Joined ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`
     }
 
-    // document.querySelector('.bio').textContent = user.bio;
     const bio = document.querySelector('.bio');
     if (!user.bio) {
         bio.textContent = 'Not Available'
@@ -58,31 +67,27 @@ displayUser = async (user) => {
         bio.textContent = user.bio;
     }
 
-    // document.querySelector('.repos').textContent = user.public_repos;
     const publicRepos = document.querySelector('.repos');
     if (!user.public_repos) {
-        publicRepos.textContent = 'Not Available'
+        publicRepos.textContent = 'N/A'
     } else {
         publicRepos.textContent = user.public_repos;
     }
 
-    // document.querySelector('.followers').textContent = user.followers;
     const followers = document.querySelector('.followers');
     if (!user.followers) {
-        followers.textContent = 'Not Available'
+        followers.textContent = 'N/A'
     } else {
         followers.textContent = user.followers;
     }
 
-    // document.querySelector('.following').textContent = user.following;
     const following = document.querySelector('.following');
     if (!user.following) {
-        following.textContent = 'Not Available'
+        following.textContent = 'N/A'
     } else {
         following.textContent = user.following;
     }
 
-    // document.querySelector('.location').textContent = user.location;
     const location = document.querySelector('.location');
     if (!user.location) {
         location.textContent = 'Not Available';
@@ -90,7 +95,6 @@ displayUser = async (user) => {
         location.textContent = user.location;
     }
 
-    // document.querySelector('.website').textContent = user.blog;
     const website = document.querySelector('.website');
     if (!user.blog) {
         website.textContent = 'Not Available'
@@ -98,7 +102,6 @@ displayUser = async (user) => {
         website.textContent = user.blog;
     }
 
-    // document.querySelector('.twitter').textContent = user.twitter_username;
     const twitterUsername = document.querySelector('.twitter')
     if (!user.twitter_username) {
         twitterUsername.textContent = 'Not Available'
@@ -115,23 +118,28 @@ displayUser = async (user) => {
     }
 }
 
+
+// Event Listeners
+
 const btn = document.querySelector('.search-button');
 
-
 btn.addEventListener('click', (e) => {
-    // const value = e.target.value;
-    // console.log(value);
-    // console.log(`https://api.github.com/users/${value}`);
-
+    // preventDefault prevents the default action from happening (which seems to be reloading the page)
+    // not sure why
     e.preventDefault();
-
-    const input = document.querySelector('#search');
+    // const input = document.querySelector('#search');
     const username = input.value.toLowerCase();
-
     if (username) {
         getUser(username)
         input.value = '';
     }
 })
+
+const form = document.querySelector('form');
+// making sure the "no results" error message gets hidden whenever search bar is clicked
+form.addEventListener('click', () => {
+    noResults.classList.add('hide');
+})
+
 
 getUser(username);

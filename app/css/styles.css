@@ -66,6 +66,10 @@ button {
   display: none;
 }
 
+.hide {
+  display: none;
+}
+
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -209,6 +213,12 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-left: 0;
   border: none;
   cursor: pointer;
+}
+
+.search-container .no-results {
+  color: #F74646;
+  width: 25%;
+  font-weight: 700;
 }
 
 .main-container {
