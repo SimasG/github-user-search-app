@@ -175,6 +175,15 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .search-container .search-button {
   cursor: pointer;
+  background-color: #0079FF;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 1.2rem 1.4rem;
+  border-radius: 10px;
+  margin: 0.7rem 0.7rem 0.7rem;
+  margin-left: 0;
+  cursor: pointer;
 }
 
 .search-container .search-button button {
