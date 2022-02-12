@@ -17,5 +17,27 @@
                 letter-spacing: 0.25rem;
             }
         }
+        // don't understand why I have to declare a .hide rule here instead of reusing the global one
+        .hide {
+            display: none;
+        }
+        .light {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            p {
+                top: -1rem;
+                text-transform: uppercase;
+                color: $white;
+                font-weight: bold;
+                letter-spacing: 0.25rem;
+            }
+        }
+        // don't understand why I have to declare a .hide rule here instead of reusing the global one
+        .hide {
+            display: none;
+        }
     }
 }
