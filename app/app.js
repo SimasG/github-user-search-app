@@ -15,7 +15,13 @@ const following = document.querySelector('.following');
 const userLocation = document.querySelector('.location');
 const website = document.querySelector('.website');
 const twitterUsername = document.querySelector('.twitter')
-const company = document.querySelector('.company')
+const company = document.querySelector('.company');
+
+const twitterIcon = document.querySelector('.twitter-icon');
+const locationIcon = document.querySelector('.location-icon');
+const websiteIcon = document.querySelector('.website-icon');
+const companyIcon = document.querySelector('.company-icon');
+
 
 
 
@@ -106,6 +112,7 @@ displayUser = async (user) => {
     // const userLocation = document.querySelector('.location');
     if (!user.location) {
         userLocation.textContent = 'Not Available';
+        locationIcon.style.opacity = '0.5'
     } else {
         userLocation.textContent = user.location;
     }
@@ -113,6 +120,7 @@ displayUser = async (user) => {
     // const website = document.querySelector('.website');
     if (!user.blog) {
         website.textContent = 'Not Available'
+        websiteIcon.style.opacity = '0.5'
     } else {
         website.textContent = user.blog;
     }
@@ -120,6 +128,8 @@ displayUser = async (user) => {
     // const twitterUsername = document.querySelector('.twitter')
     if (!user.twitter_username) {
         twitterUsername.textContent = 'Not Available'
+        twitterUsername.style.opacity = '0.5'
+        twitterIcon.style.opacity = '0.5'
     } else {
         twitterUsername.textContent = user.twitter_username;
     }
@@ -127,6 +137,7 @@ displayUser = async (user) => {
     // const company = document.querySelector('.company')
     if (!user.company) {
         company.textContent = 'Not Available'
+        companyIcon.style.opacity = '0.5'
     } else {
         company.textContent = user.company;
     }
@@ -160,8 +171,6 @@ getUser(username);
 
 
 
-
-
 // THEME FUNCTIONALITY
 const themeBtn = document.querySelector('.modes');
 const body = document.querySelector('body');
@@ -171,38 +180,75 @@ const darkBtn = document.querySelector('.dark');
 const searchContainer = document.querySelector('.search-container');
 const mainContainer = document.querySelector('.main-container');
 const statsContainer = document.querySelector('.stats-container');
-// const statsHeading = document.querySelector('.stats-heading');
+const statsHeading1 = document.querySelector('.stats-heading-1');
+const statsHeading2 = document.querySelector('.stats-heading-2');
+const statsHeading3 = document.querySelector('.stats-heading-3');
 
-// const statsHeading1 = document.querySelector('.stats-heading-1');
-// const statsHeading2 = document.querySelector('.stats-heading-2');
-// const statsHeading3 = document.querySelector('.stats-heading-3');
-
-
+let darkTheme = false;
 
 
+// using classes would most likely have been easier/more scalable
 themeBtn.addEventListener('click', () => {
-    body.style.backgroundColor = '#141D2F';
-    logo.style.color = '#FFFFFF';
-    lightBtn.classList.remove('hide');
-    darkBtn.classList.add('hide');
-    input.classList.add('display-placeholder');
-    searchContainer.style.backgroundColor = '#1E2A47';
-    mainContainer.style.backgroundColor = '#1E2A47';
-    statsContainer.style.backgroundColor = '#141D2F';
-    userName.style.color = '#FFFFFF';
-    joinDate.style.color = '#FFFFFF';
-    bio.style.color = '#FFFFFF';
-    // don't know why it doesn't turn all the stats headings white
-    // statsHeading1.style.color = '#FFFFFF';
-    // statsHeading2.style.color = '#FFFFFF';
-    // statsHeading3.style.color = '#FFFFFF';
+    if (!darkTheme) {
+        darkTheme = true;
 
-    publicRepos.style.color = '#FFFFFF';
-    followers.style.color = '#FFFFFF';
-    following.style.color = '#FFFFFF';
+        body.style.backgroundColor = '#141D2F';
+        logo.style.color = '#FFFFFF';
+        lightBtn.classList.remove('hide');
+        darkBtn.classList.add('hide');
+        input.classList.add('display-placeholder');
+        searchContainer.style.backgroundColor = '#1E2A47';
+        mainContainer.style.backgroundColor = '#1E2A47';
+        statsContainer.style.backgroundColor = '#141D2F';
+        userName.style.color = '#FFFFFF';
+        joinDate.style.color = '#FFFFFF';
+        bio.style.color = '#FFFFFF';
+        statsHeading1.style.color = '#FFFFFF';
+        statsHeading2.style.color = '#FFFFFF';
+        statsHeading3.style.color = '#FFFFFF';
     
-    userLocation.style.color = '#FFFFFF';
-    website.style.color = '#FFFFFF';
-    twitterUsername.style.color = '#FFFFFF';
-    company.style.color = '#FFFFFF';
+        publicRepos.style.color = '#FFFFFF';
+        followers.style.color = '#FFFFFF';
+        following.style.color = '#FFFFFF';
+    
+        userLocation.style.color = '#FFFFFF';
+        locationIcon.style.fill = '#FFFFFF';
+        website.style.color = '#FFFFFF';
+        websiteIcon.style.fill = '#FFFFFF';
+        twitterUsername.style.color = '#FFFFFF';
+        twitterIcon.style.fill = '#FFFFFF';
+        company.style.color = '#FFFFFF';
+        companyIcon.style.fill = '#FFFFFF';
+    } else {
+        darkTheme = false;
+
+        body.style.backgroundColor = '#F6F8FF';
+        logo.style.color = '#222731';
+        lightBtn.classList.add('hide');
+        darkBtn.classList.remove('hide');
+        input.classList.remove('display-placeholder');
+        searchContainer.style.backgroundColor = '#FEFEFE';
+        mainContainer.style.backgroundColor = '#FEFEFE';
+        statsContainer.style.backgroundColor = '#FEFEFE';
+        userName.style.color = '#2B3442';
+        joinDate.style.color = '#697C9A';
+        bio.style.color = '#4B6A9B';
+        statsHeading1.style.color = '#4B6A9B';
+        statsHeading2.style.color = '#4B6A9B';
+        statsHeading3.style.color = '#4B6A9B';
+    
+        publicRepos.style.color = '#2B3442';
+        followers.style.color = '#2B3442';
+        following.style.color = '#2B3442';
+    
+        userLocation.style.color = '#4B6A9B';
+        locationIcon.style.fill = '#4B6A9B';
+        website.style.color = '#4B6A9B';
+        websiteIcon.style.fill = '#4B6A9B';
+        twitterUsername.style.color = '#4B6A9B';
+        twitterIcon.style.fill = '#4B6A9B';
+        company.style.color = '#4B6A9B';
+        companyIcon.style.fill = '#4B6A9B';
+    }
+
 })

@@ -89,6 +89,10 @@ input[type="search"]::-webkit-search-results-decoration {
           align-items: center;
 }
 
+.header-container .logo {
+  color: #222731;
+}
+
 .header-container .modes .dark {
   display: -webkit-box;
   display: -ms-flexbox;
