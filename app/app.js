@@ -221,6 +221,7 @@ themeBtn.addEventListener('click', () => {
         lightBtn.classList.remove('hide');
         darkBtn.classList.add('hide');
         input.classList.add('display-placeholder');
+        input.style.color = '#FFFFFF';
         searchContainer.style.backgroundColor = '#1E2A47';
         mainContainer.style.backgroundColor = '#1E2A47';
         statsContainer.style.backgroundColor = '#141D2F';

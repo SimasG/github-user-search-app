@@ -177,6 +177,7 @@ input[type="search"]::-webkit-search-results-decoration {
   border: none;
   outline: none;
   width: 54%;
+  background: transparent;
 }
 
 .search-container #search::-webkit-input-placeholder {
