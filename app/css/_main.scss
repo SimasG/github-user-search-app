@@ -1,0 +1,168 @@
+.search-container {
+    background-color: $almostWhite;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 4rem;
+    .search-icon {
+        padding-left: 1.6rem;
+        cursor: pointer;
+    }
+    .search-text {
+        font-size: 1.1rem;
+        color: $greyBlue;
+        border: none;
+        cursor: pointer;
+    }
+    #search {
+        border: none;
+        outline: none;
+        width: 54%;
+        &::placeholder {
+            color: $greyBlue;
+            background-color: $white;
+            &:active {
+                border: none;
+            }
+        }
+    }
+    // don't think it's the best way to do this
+    #search.display-placeholder {
+        &::placeholder {
+            color: $white;
+            background-color: $darkBlue;
+        }
+    }
+    .search-button {
+        cursor: pointer;
+        background-color: $lightBlue;
+        color: $white;
+        font-size: 1.4rem;
+        font-weight: bold;
+        padding: 1.2rem 1.4rem;
+        border-radius: 10px;
+        margin: 0.7rem 0.7rem 0.7rem;
+        margin-left: 0;
+        cursor: pointer;
+        button {
+            background-color: $lightBlue;
+            color: $white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 1.2rem 1.4rem;
+            border-radius: 10px;
+            margin: 0.7rem 0.7rem 0.7rem;
+            margin-left: 0;
+            cursor: pointer;
+        }
+        #submit {
+            background-color: $lightBlue;
+            color: $white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 1.2rem 1.4rem;
+            border-radius: 10px;
+            margin: 0.7rem 0.7rem 0.7rem;
+            margin-left: 0;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    .no-results {
+        color: #F74646;
+        width: 25%;
+        font-weight: 700;
+    }
+}
+
+.main-container {
+    background-color: $almostWhite;
+    padding: 3.2rem 2rem 4.8rem 2.4rem;
+    border-radius: 15px;
+    margin: 1.6rem 0 3.2rem 0;
+    .upper-main-subcontainer {
+        .main-info {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3.4rem;
+            .profile-picture-container {
+                #profile-picture {
+                    height: 7rem;
+                    width: 7rem;
+                    border-radius: 90px;   
+                }
+            }
+            .personal-info {
+                .name {
+                    font-size: 1.6rem;
+                }
+                .handle {
+                    color: $lightBlue;
+                }
+                .join-date {
+                    color: $darkGrey;
+                }
+            }
+        }
+        .bio-container {
+            margin-bottom: 2.3rem;
+            .bio {
+                color: $greyBlue;
+            }
+        }
+    }
+    .lower-main-subcontainer {
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: $whiteBlue;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2.4rem;
+            .stat-item {
+                position: relative;
+                .stats-heading {
+                    color: $greyBlue;
+                    font-size: 1.1rem;
+                    font-weight: lighter;
+                }
+                .stat {
+                    font-size: 1.6rem;
+                    color: $lightBlack;
+                    margin: 0 auto;
+                }
+                .repos {
+                    width: 25%;
+                }
+                .followers {
+                    width: 60%;
+                }
+                .following {
+                    width: 25%;
+                }
+            }
+        }
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 1rem;
+            .link {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 2rem;
+                cursor: pointer;
+                .link-paragraph {
+                    color: $greyBlue;
+                }
+            }
+        }
+    }
+}
