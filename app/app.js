@@ -17,13 +17,13 @@ const website = document.querySelector('.website');
 const twitterUsername = document.querySelector('.twitter')
 const company = document.querySelector('.company');
 
-const twitterIcon = document.querySelector('.twitter-icon');
 const locationIcon = document.querySelector('.location-icon');
 const websiteIcon = document.querySelector('.website-icon');
+const twitterIcon = document.querySelector('.twitter-icon');
 const companyIcon = document.querySelector('.company-icon');
 
-
-
+// don't understand why I can't manipulate multiple icons
+// const icons = document.getElementsByClassName('icon');
 
 
 let username = 'octocat';
@@ -48,8 +48,28 @@ displayNoResults = (user) => {
     }
 }
 
+removePreviousSearchStyles = () => {
+    const allIcons = document.querySelectorAll('.icon');
+
+    // restores SVG icons to their original styles
+    allIcons.forEach(icon => {
+        icon.style.opacity = '1';
+    })
+
+    const socialLinks = document.querySelectorAll('.link-paragraph');
+
+    // deletes link text and href
+    socialLinks.forEach(link => {
+        link.style.opacity = '1';
+        link.href = '';
+        link.textContent = '';
+    })
+
+}
+
 // populating api data into html
 displayUser = async (user) => {
+
     const date = new Date(user.created_at);
 
     // const avatar = document.querySelector('#profile-picture');
@@ -111,7 +131,8 @@ displayUser = async (user) => {
 
     // const userLocation = document.querySelector('.location');
     if (!user.location) {
-        userLocation.textContent = 'Not Available';
+        userLocation.textContent = 'Not Available'
+        userLocation.style.opacity = '0.5'
         locationIcon.style.opacity = '0.5'
     } else {
         userLocation.textContent = user.location;
@@ -120,6 +141,7 @@ displayUser = async (user) => {
     // const website = document.querySelector('.website');
     if (!user.blog) {
         website.textContent = 'Not Available'
+        website.style.opacity = '0.5'
         websiteIcon.style.opacity = '0.5'
     } else {
         website.textContent = user.blog;
@@ -137,9 +159,10 @@ displayUser = async (user) => {
     // const company = document.querySelector('.company')
     if (!user.company) {
         company.textContent = 'Not Available'
+        company.style.opacity = '0.5'
         companyIcon.style.opacity = '0.5'
     } else {
-        company.textContent = user.company;
+        company.textContent = user.company.slice(1);
     }
 }
 
@@ -152,6 +175,7 @@ btn.addEventListener('click', (e) => {
     // preventDefault prevents the default action from happening (which seems to be reloading the page)
     // not sure why
     e.preventDefault();
+    removePreviousSearchStyles();
     // const input = document.querySelector('#search');
     const username = input.value.toLowerCase();
     if (username) {
@@ -219,6 +243,7 @@ themeBtn.addEventListener('click', () => {
         twitterIcon.style.fill = '#FFFFFF';
         company.style.color = '#FFFFFF';
         companyIcon.style.fill = '#FFFFFF';
+
     } else {
         darkTheme = false;
 
